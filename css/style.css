@@ -5437,7 +5437,8 @@ i.iconfont.js-toggle-search.iconsearch {
     display:inline-block;
     border-radius:100%;
     background:#d34836;
-    cursor:pointer
+    cursor:pointer;
+    display: none;
 }
 .single-reward .reward-main {
     position:absolute;
@@ -5451,7 +5452,7 @@ i.iconfont.js-toggle-search.iconsearch {
     animation:main .4s
 }
 .reward-open:hover .reward-main {
-    display:block
+    display:none
 }
 .single-reward .reward-row {
     margin:0 auto;

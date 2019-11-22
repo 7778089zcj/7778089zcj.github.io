@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2019-11-22T09:29:12.789Z</updated>
+  <updated>2019-11-22T10:19:56.393Z</updated>
   <id>/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="/2019/11/22/jq-get-0-%E9%97%AE%E9%A2%98/"/>
     <id>/2019/11/22/jq-get-0-问题/</id>
     <published>2019-11-22T09:28:36.000Z</published>
-    <updated>2019-11-22T09:29:12.789Z</updated>
+    <updated>2019-11-22T10:19:56.393Z</updated>
     
     <summary type="html">
     
@@ -36,6 +36,10 @@
     
     </summary>
     
+      <category term="前端" scheme="/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="jq" scheme="/tags/jq/"/>
     
   </entry>
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2019-11-22T08:16:21.624Z</updated>
+  <updated>2019-11-22T08:29:20.950Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>three</title>
+    <link href="/2019/11/22/three/"/>
+    <id>/2019/11/22/three/</id>
+    <published>2019-11-22T08:29:20.000Z</published>
+    <updated>2019-11-22T08:29:20.950Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>two</title>
     <link href="/2019/11/22/two/"/>
     <id>/2019/11/22/two/</id>
     <published>2019-11-22T08:16:21.000Z</published>
-    <updated>2019-11-22T08:16:21.624Z</updated>
+    <updated>2019-11-22T08:29:00.142Z</updated>
     
     <summary type="html">
     

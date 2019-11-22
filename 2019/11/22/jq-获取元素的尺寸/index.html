@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">adsad | zcj blog</title>
+  <title itemprop="name">jq 获取元素的尺寸 | zcj blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -222,7 +222,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      adsad</h1>
+      jq 获取元素的尺寸</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -248,21 +248,88 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          
-<div class="entry-content">
-  <div class="poem-wrap">
-    <div class="poem-border poem-left">
-    </div>
-    <div class="poem-border poem-right">
-    </div>
-    <h1>
-    念两句诗</h1>
-    <p id="poem">
-    叙别梦、扬州一觉。</p>
-    <p id="info">
-    【宋代】吴文英《夜游宫·人去西楼雁杳》</p>
-  </div>
-</div>
+          <h2 id="jq-获取元素的尺寸"><a href="#jq-获取元素的尺寸" class="headerlink" title="jq 获取元素的尺寸"></a>jq 获取元素的尺寸</h2><ul>
+<li style="list-style: none"><input type="checkbox" checked> 获取元素尺寸</li>
+<li>jquery-3.4.1 是可以获取隐藏元素的宽高的，下面的方法都可以获取隐藏元素的宽高</li>
+</ul>
+<table class="table table-bordered table-striped table-condensed"><br><tr><th>方法</th><th>作用</th></tr><br><tr><td>width()</td><td>获取元素的内容宽度</td></tr><br><tr><td>height()</td><td>获取元素的内容高度</td></tr><br><tr><td>innerWidth()</td><td>获取元素（内容+padding）宽度</td></tr><br><tr><td>innerHeight()</td><td>获取元素（内容+padding）高度</td></tr><br><tr><td>outerWidth()</td><td>获取元素（内容+padding+border）宽度</td></tr><br><tr><td>outerHeight()</td><td>获取元素（内容+padding+border）高度</td></tr><br><tr><td>outerWidth(true)</td><td>获取元素（内容+padding+border+margin）宽度</td></tr><br><tr><td>outerHeight(true)</td><td>获取元素（内容+padding+border+margin）高度</td></tr><br></table>
+
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 其他常用尺寸</li>
+</ul>
+<table class="table table-bordered table-striped table-condensed"><br><tr><th>写法</th><th>作用</th></tr><br><tr><td> $(window).width()</td><td>获取浏览器可视区宽度</td></tr><br><tr><td> $(window).height()</td><td>获取浏览器可视区高度</td></tr><br><tr><td> $(document).width()</td><td>获取页面宽度</td></tr><br><tr><td> $(document).height()</td><td>获取页面高度</td></tr><br><tr><td> $(‘body’).width()</td><td>获取页面宽度，body默认有8px的margin</td></tr><br><tr><td> $(‘body’).height()</td><td>获取页面高度，body默认有8px的margin</td></tr><br></table>
+
+<pre><code class="javascript">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        div {
+            width: 100px;
+            height: 100px;
+            background: Red;
+            padding: 10px;
+            border: 5px black solid;
+            margin: 3px;
+            display: none;
+        }
+    &lt;/style&gt;
+    &lt;script src=&quot;./jquery-3.4.1.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style=&quot;height: 3000px;&quot;&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;script&gt;
+        //得到元素的内容宽度、高度 width() height()
+        console.log($(&#39;div&#39;).width()); //100 
+        console.log($(&#39;div&#39;).height()); //100 
+
+        //得到元素的内容+padding innerWidth() innerHeight()
+        console.log($(&#39;div&#39;).innerWidth()); //120
+        console.log($(&#39;div&#39;).innerHeight()); //120 
+
+        //得到元素的内容+padding+border outerWidth() outerHeight()
+        console.log($(&#39;div&#39;).outerWidth());  //130
+        console.log($(&#39;div&#39;).outerHeight()); //130
+
+        //得到元素的内容+padding+border+margin outerWidth(true) outerHeight(true)
+        console.log($(&#39;div&#39;).outerWidth(true));  //136
+        console.log($(&#39;div&#39;).outerHeight(true)); //136
+
+        //设置元素宽高
+        $(&#39;div&#39;).width(300);
+        $(&#39;div&#39;).height(300);
+        console.log($(&#39;div&#39;).width()) //300
+        $(&#39;div&#39;).innerWidth(300);
+        console.log($(&#39;div&#39;).width());//280  内容=300-padding
+        $(&#39;div&#39;).outerWidth(300)
+        console.log($(&#39;div&#39;).width());//270 内容=300-padding-border
+        $(&#39;div&#39;).outerWidth(300, true)
+        console.log($(&#39;div&#39;).width()); //264 内容=300-padding-border-margin
+
+        //原生js 是获取不到隐藏元素的宽高的
+        console.log($(&#39;div&#39;).get(0).offsetWidth) //0 get将jq获取的元素转成js原生的元素 get参数不写的话，输出undefind
+        //因为$(&#39;div&#39;)返回的对象是个数组，不管有没有值，返回的都是数组，所以需要加0
+
+        //jq是可以获取隐藏元素的宽高的
+        console.log($(&#39;div&#39;).width())  //264
+
+        //其他尺寸
+        //浏览器可视区的宽高 $(window).width() $(window).height
+        console.log($(window).width())
+        console.log($(window).height())
+
+        //页面宽高 $(document).width() $(document).height() $(&#39;body&#39;).width() $(&#39;body&#39;).height()
+        console.log($(document).width()); //877
+        console.log($(&#39;body&#39;).width()); //861 //左右两边默认 margin 8px
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -291,26 +358,9 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2019/11/22/水电费第三方律/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/cover/background.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="/images/cover/background.png">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                水电费第三方律</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
             <a href="/2019/11/22/jq-get-0-问题/" rel="next">
               <div class="background">
